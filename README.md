@@ -2,6 +2,7 @@
 A Golang Tool for Querying Network Details Lookup
 
 # Usage of Ncli
+```
 - chmod +x ncli
 - cp ncli /usr/local/bin/
 - ncli -h
@@ -13,6 +14,6 @@ A Golang Tool for Querying Network Details Lookup
 - ncli cn -ho=google.com
 - ncli ip -h
 - ncli ip -ho google.com
-
+```
 
 
