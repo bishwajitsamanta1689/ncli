@@ -12,8 +12,9 @@ import (
 var app = cli.NewApp()
 var myFlags = []cli.Flag{
 	&cli.StringFlag{
-		Name:  "host",
-		Value: "",
+		Name:    "host",
+		Value:   "Enter Host Details",
+		Aliases: []string{"ho"},
 	},
 }
 
