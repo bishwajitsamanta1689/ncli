@@ -31,9 +31,10 @@ func info() {
 func command() {
 	app.Commands = []*cli.Command{
 		{
-			Name:  "ns",
-			Usage: "Looks up the Name Server for Particular Host",
-			Flags: myFlags,
+			Name:    "nameserver",
+			Usage:   "Looks up the Name Server for Particular Host",
+			Flags:   myFlags,
+			Aliases: []string{"ns"},
 			Action: func(context *cli.Context) error {
 				ns, err := net.LookupNS(context.String("host"))
 				if err != nil {
@@ -41,6 +42,20 @@ func command() {
 				}
 				for i := 0; i < len(ns); i++ {
 					fmt.Println(ns[i].Host)
+				}
+				return nil
+			},
+		},
+		{
+			Name:    "ipAddress",
+			Usage:   "Looks up the IP Addresses for a particular Host",
+			Flags:   myFlags,
+			Aliases: []string{"ip"},
+			Action: func(context *cli.Context) error {
+				ip, err := net.LookupIP(context.String("host"))
+				handleError(err)
+				for i := 0; i < len(ip); i++ {
+					fmt.Println(ip[i])
 				}
 				return nil
 			},
