@@ -23,6 +23,14 @@ func handleError(err error) {
 		log.Fatal(err)
 	}
 }
+func logPrint() {
+	fmt.Println("======================")
+	log.SetPrefix("TRACE: ")
+	log.SetFlags(log.Ldate | log.Lmicroseconds)
+	log.Println(":: Log Process Started \n")
+	fmt.Println("Search Results below::")
+	fmt.Println("======================")
+}
 func info() {
 	app.Name = "Network CLI"
 	app.Usage = "Let's you Query IP's, CNAME"
@@ -93,6 +101,7 @@ func main() {
 	// Importing Functions Declared
 	info()
 	command()
+	logPrint()
 
 	err := app.Run(os.Args)
 	handleError(err)
