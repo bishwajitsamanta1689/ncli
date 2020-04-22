@@ -60,6 +60,20 @@ func command() {
 				return nil
 			},
 		},
+		{
+			Name:    "mxrecords",
+			Usage:   "Looks up for MX Record for a particular Host",
+			Flags:   myFlags,
+			Aliases: []string{"mx"},
+			Action: func(context *cli.Context) error {
+				mxRecords, err := net.LookupMX(context.String("host"))
+				handleError(err)
+				for i := 0; i < len(mxRecords); i++ {
+					fmt.Println(mxRecords[i].Host)
+				}
+				return nil
+			},
+		},
 	}
 }
 func main() {
