@@ -74,6 +74,18 @@ func command() {
 				return nil
 			},
 		},
+		{
+			Name:    "cname",
+			Usage:   "Looks up for the CNAME for a Particular Host",
+			Flags:   myFlags,
+			Aliases: []string{"cn"},
+			Action: func(context *cli.Context) error {
+				cname, err := net.LookupCNAME(context.String("host"))
+				handleError(err)
+				fmt.Println(cname)
+				return nil
+			},
+		},
 	}
 }
 func main() {
