@@ -28,6 +28,12 @@ func info() {
 	app.Name = "Network CLI"
 	app.Usage = "Let's you Query IP's, CNAME"
 	app.Version = "0.1.0"
+	app.Authors = []*cli.Author{
+		&cli.Author{
+			Name:  "Bishwajit",
+			Email: "bishwajitsamanta1689@gmail.com",
+		},
+	}
 }
 
 func command() {
